@@ -1,0 +1,30 @@
+<!-- to show the all posts -->
+<H1>QOURA PAGE</H1> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALL POSTS</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+   <%  for(let post of posts) { %>
+        <div class="post">
+            <h2 class="user">@<%= post.username %></h2>
+            <h4 class="contant"><%= post.contant %></h4>
+            <a href="http://localhost:8080/posts/<%=post.id%>">VIEW POST</a>
+            <a href="http://localhost:8080/posts/<%=post.id%>/edit">EDIT POST</a> 
+            <form method="post" action="/posts/<%=post.id%>?_method=DELETE">
+                <button>DELETE</button>
+            </form>
+        </div>
+        
+   <% } %>
+   <br><br>
+
+   <a href="http://localhost:8080/posts/new">ADD POST</a>
+    
+</body>
+</html>
